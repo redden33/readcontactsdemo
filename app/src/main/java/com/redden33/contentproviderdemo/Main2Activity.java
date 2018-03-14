@@ -56,7 +56,11 @@ public class Main2Activity extends AppCompatActivity {
                 while (cursor.moveToNext()){
                     String contacts_name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                     String contacts_phone_number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    contactsList.add(contacts_name+contacts_phone_number);
+                    String contact = contacts_name+contacts_phone_number;
+
+                    if (!contactsList.contains(contact)){
+                        contactsList.add(contacts_name+contacts_phone_number);
+                    }
                 }
             }
         }catch (Exception e){
